@@ -15,7 +15,7 @@ export class HomeComponent extends AppComponent implements OnInit {
   // ESTUDIANTE
   basicInfoFormGroup: FormGroup;
   documentsFormGroup: FormGroup;
-  private usersDocente: any = [];
+  public usersDocente: any = [];
   teacherAssignment: number;
   career: string;
   programs: any = [];
@@ -25,21 +25,21 @@ export class HomeComponent extends AppComponent implements OnInit {
   documentsFormGroupCompany: FormGroup;
   razon: string = 'privada';
 
-  private greeting: string;
-  private firstName: string;
-  private userType: number;
-  private email: string;
+  public greeting: string;
+  public firstName: string;
+  public userType: number;
+  public email: string;
   spinnerSendUserInfo: boolean;
   doneSendUserInfo: boolean;
   isLinear = false;
   srcResult;
 
   // DOCENTES
-  private getUserMethodState: boolean;
-  private getUsersParam: any;
-  private currentUview: any;
-  private getUsersOffset: number;
-  private users: any = [];
+  public getUserMethodState: boolean;
+  public getUsersParam: any;
+  public currentUview: any;
+  public getUsersOffset: number;
+  public users: any = [];
   totalUsers = 0;
 
   ngOnInit( ) {
@@ -94,16 +94,16 @@ export class HomeComponent extends AppComponent implements OnInit {
       this.time();
     }, 60000);
 
-    if (this.userInfo.type === 4) {
+    if (this.userInfo.type == 4) {
       this.getUsers(10, 0);
     }
-    if (this.userInfo.type === 1) {
+    if (this.userInfo.type == 1) {
       this.getUsersDocente();
       this.getPrograms();
     }
   }
 
-  private time() {
+  public time() {
     const now = new Date();
     const hour = now.getHours();
     if (hour <= 11) {
@@ -218,7 +218,7 @@ export class HomeComponent extends AppComponent implements OnInit {
     console.log('UpdateUser');
     this.spinnerSendUserInfo = true;
     let data;
-    if (this.userInfo.type === 1) {
+    if (this.userInfo.type == 1) {
       this.userInfo.email = this.basicInfoFormGroup.getRawValue().us_email;
       this.userInfo.dataStudent.idNumber = this.basicInfoFormGroup.getRawValue().st_idNumber;
       this.userInfo.names = this.basicInfoFormGroup.getRawValue().us_names;
@@ -248,7 +248,7 @@ export class HomeComponent extends AppComponent implements OnInit {
       };
     }
 
-    if (this.userInfo.type === 2) {
+    if (this.userInfo.type == 2) {
       this.userInfo.email = this.basicInfoFormGroupCompany.getRawValue().us_email;
       this.userInfo.names = this.basicInfoFormGroupCompany.getRawValue().us_names;
       this.userInfo.lastNames = this.basicInfoFormGroupCompany.getRawValue().us_lastNames;
@@ -340,9 +340,9 @@ export class HomeComponent extends AppComponent implements OnInit {
             localStorage.setItem('user', JSON.stringify(this.userInfo));
           }
           if (nameToSave === 'cardid.pdf') {
-            if (this.userInfo.type === 1) {
+            if (this.userInfo.type == 1) {
               this.userInfo.dataStudent.cardid = response.url;
-            } else if (this.userInfo.type === 2) {
+            } else if (this.userInfo.type == 2) {
               this.userInfo.dataCompany.cardid = response.url;
             }
             localStorage.setItem('user', JSON.stringify(this.userInfo));

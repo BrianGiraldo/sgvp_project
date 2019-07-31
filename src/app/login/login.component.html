@@ -20,7 +20,7 @@
           </mat-select>
         </mat-form-field>
         <br><br><br>
-        <mat-progress-bar mode="indeterminate" class="progress-bar-1" *ngIf="login_method_state"></mat-progress-bar>
+        <mat-progress-bar mode="indeterminate" class="progress-bar-1" *ngIf="loginMethodState"></mat-progress-bar>
         <button mat-raised-button  class="login-input longin-go font-1" (click)="login(username,password);">Entrar</button>
         <br><br>
         <button mat-raised-button  class="login-input font-1 button-new-company" *ngIf="typeuserDefault == 2" (click)="newCompany()">¿Eres empresa? - Regístrala</button>

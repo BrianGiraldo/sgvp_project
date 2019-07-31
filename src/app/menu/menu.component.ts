@@ -8,7 +8,7 @@ import { AppComponent } from '../app.component';
 })
 export class MenuComponent extends AppComponent implements OnInit {
   public HCemail: string;
-  private userType: number;
+  public userType: number;
 
   ngOnInit() {
     this.userInfo = JSON.parse(localStorage.getItem('user'));

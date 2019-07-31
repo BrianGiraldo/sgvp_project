@@ -71,7 +71,7 @@
             <input matInput placeholder="Apellidos" [(ngModel)]="newU.lastnames" name="lastnames">
         </mat-form-field>
         <br>
-        Imagen: <input type="file" (change)="filesSelectcreateUserExcel($event)" accept="image/x-png,image/gif,image/jpeg">
+        Imagen: <input type="file" (change)="filesSelectcreateUserExcel()" accept="image/x-png,image/gif,image/jpeg">
         <br>
         <mat-progress-bar mode="indeterminate" color="warn" class="load-2" style="width: 95px;" *ngIf="newUserMethodState"></mat-progress-bar>
         <button mat-button mat-raised-button class="button-create-user" (click)="createUser(typeUserDefault)" [disabled]="newUserMethodState">

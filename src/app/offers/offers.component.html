@@ -2,7 +2,7 @@
 <br>
 <br>
 <div class="container">
-  <mat-expansion-panel *ngIf="userInfo.type === 3">
+  <mat-expansion-panel *ngIf="userInfo.type == 3">
     <mat-expansion-panel-header>
       <mat-panel-title>
         {{acceptedAplications.length}} aplicaciones por aceptar
@@ -46,7 +46,7 @@
     </mat-card>
   </mat-expansion-panel>
   <br>
-  <button mat-button mat-raised-button class="button-change-pass" (click)="crearOferta()" *ngIf="userInfo.type === 2 || userInfo.type === 3">
+  <button mat-button mat-raised-button class="button-change-pass" (click)="crearOferta()" *ngIf="userInfo.type == 2 || userInfo.type == 3">
     <mat-icon aria-label="Pass">lock</mat-icon>
     Crear una oferta
   </button>
@@ -56,9 +56,9 @@
       <div mat-card-avatar class="example-header-image"><img [src]="offer.img" class="img-profile-1" id="img-profile-1"></div>
       <mat-card-title><span *ngIf="offer.name != null">{{offer.name}}</span></mat-card-title>
       <mat-card-subtitle>{{offer.description}}</mat-card-subtitle>
-      <span *ngIf="userInfo.type === 1 || userInfo.type === 3" class="view-c" matTooltip="Ver información de {{offer.us_email_c}}" matTooltipPosition="left" (click)="viewCompany(offer)"><i class="material-icons">remove_red_eye</i></span>
+      <span *ngIf="userInfo.type == 1 || userInfo.type == 3" class="view-c" matTooltip="Ver información de {{offer.us_email_c}}" matTooltipPosition="left" (click)="viewCompany(offer)"><i class="material-icons">remove_red_eye</i></span>
     </mat-card-header>
-    <mat-card-content *ngIf="userInfo.type === 2 || userInfo.type === 3" style="margin-bottom: 0">
+    <mat-card-content *ngIf="userInfo.type == 2 || userInfo.type == 3" style="margin-bottom: 0">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
@@ -83,21 +83,21 @@
       </mat-expansion-panel>
     </mat-card-content>
     <div class="content" *ngIf="offer.state !== null">
-      <p *ngIf="offer.state == 0 && userInfo.dataStudent.isFree === 1">Estado: <span class="espera">EN ESPERA</span></p>
-      <p *ngIf="offer.state == 1 && userInfo.dataStudent.isFree === 1">Estado: <span class="aceptado">ACEPTADO (esperando confirmación del administrador)</span></p>
-      <p *ngIf="offer.state == 2 && userInfo.dataStudent.isFree === 1">Estado: <span class="rechazado">RECHAZADO</span></p>
+      <p *ngIf="offer.state == 0 && userInfo.dataStudent.isFree == 1">Estado: <span class="espera">EN ESPERA</span></p>
+      <p *ngIf="offer.state == 1 && userInfo.dataStudent.isFree == 1">Estado: <span class="aceptado">ACEPTADO (esperando confirmación del administrador)</span></p>
+      <p *ngIf="offer.state == 2 && userInfo.dataStudent.isFree == 1">Estado: <span class="rechazado">RECHAZADO</span></p>
       <p *ngIf="offer.state == 3">Estado: <span class="practicante">PRACTICANTE</span></p>
     </div>
     <mat-card-actions>
-      <button mat-button mat-raised-button class="button-change-pass" (click)="eliminarOferta(offer)" *ngIf="offer.company_id === userInfo.id || userInfo.type === 3">
+      <button mat-button mat-raised-button class="button-change-pass" (click)="eliminarOferta(offer)" *ngIf="offer.company_id === userInfo.id || userInfo.type == 3">
         <mat-icon aria-label="Pass">delete</mat-icon>
         Eliminar
       </button>
-      <button mat-button mat-raised-button class="button-change-pass" (click)="aplicarOferta(offer)" *ngIf="userInfo.type === 1 && userInfo.dataStudent.isFree === 1 && offer.offer_student_id === null">
+      <button mat-button mat-raised-button class="button-change-pass" (click)="aplicarOferta(offer)" *ngIf="userInfo.type == 1 && userInfo.dataStudent.isFree == 1 && offer.offer_student_id === null">
         <mat-icon aria-label="Pass">done</mat-icon>
         Aplicar a la oferta
       </button>
-      <button mat-button mat-raised-button class="button-change-pass" (click)="noAplicarOferta(offer)" *ngIf="offer.state == 0 && userInfo.dataStudent.isFree === 1 && userInfo.type === 1 && offer.offer_student_id">
+      <button mat-button mat-raised-button class="button-change-pass" (click)="noAplicarOferta(offer)" *ngIf="offer.state == 0 && userInfo.dataStudent.isFree == 1 && userInfo.type == 1 && offer.offer_student_id">
         <mat-icon aria-label="Pass">delete</mat-icon>
         Eliminar aplicación a la oferta
       </button>

@@ -9,16 +9,16 @@ import {AppComponent} from '../app.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends AppComponent implements OnInit {
-  private typeuser = [
+  public typeuser = [
     {value: '1', viewValue: 'Estudiante'},
     {value: '2', viewValue: 'Empresa'},
     {value: '3', viewValue: 'Administrador'},
     {value: '4', viewValue: 'Docente'}
   ];
-  private typeuserDefault: any = '2';
-  private username: string;
-  private password: string;
-  private loginMethodState: boolean;
+  public typeuserDefault: any = '2';
+  public username: string;
+  public password: string;
+  public loginMethodState: boolean;
 
   ngOnInit() {
     this.username = '';
@@ -90,7 +90,7 @@ export class LoginComponent extends AppComponent implements OnInit {
         this.userInfo.img = response.additional_data.us_img ? response.additional_data.us_img : '';
         this.userInfo.type = response.additional_data.us_type ? response.additional_data.us_type : 0;
         this.userInfo.email = response.additional_data.us_email ? response.additional_data.us_email : '';
-        if (this.userInfo.type === 1) {
+        if (this.userInfo.type == 1) {
           this.userInfo.dataStudent.idNumber = response.additional_data.st_idnumber ? response.additional_data.st_idnumber : '';
           this.userInfo.dataStudent.career = response.additional_data.st_career ? response.additional_data.st_career : '';
           this.userInfo.dataStudent.isFree = response.additional_data.st_isfree ? response.additional_data.st_isfree : 0;
@@ -111,7 +111,7 @@ export class LoginComponent extends AppComponent implements OnInit {
           this.userInfo.dataStudent.avanceMensual = response.additional_data.avance_mensual ? response.additional_data.avance_mensual : [];
           this.userInfo.dataStudent.seguimientoAsesoria = response.additional_data.seguimiento_asesoria ? response.additional_data.seguimiento_asesoria : [];
         }
-        if (this.userInfo.type === 2) {
+        if (this.userInfo.type == 2) {
           this.userInfo.dataCompany.name = response.additional_data.comin_name ? response.additional_data.comin_name : '';
           this.userInfo.dataCompany.razon = response.additional_data.comin_razon ? response.additional_data.comin_razon : '';
           this.userInfo.dataCompany.nit = response.additional_data.comin_nit ? response.additional_data.comin_nit : 0;

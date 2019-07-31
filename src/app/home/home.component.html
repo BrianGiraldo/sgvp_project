@@ -27,7 +27,7 @@
       <br>
     </mat-card-actions>
   </mat-card>
-  <div *ngIf="userInfo.type === 1" style="padding-top: 10px; padding-bottom: 10px;">
+  <div *ngIf="userInfo.type == 1" style="padding-top: 10px; padding-bottom: 10px;">
     <mat-expansion-panel style="margin-bottom: 10px;">
       <mat-expansion-panel-header>
         <mat-panel-title>
@@ -303,10 +303,10 @@
 
         <div>
           <p>Fotocopia cedula representante legal 150% formato pdf</p>
-          <button type="button" mat-raised-button (click)="fileC.click()">Choose File</button>
+          <button type="button" mat-raised-button (click)="fileCE.click()">Choose File</button>
           <a target="_blank" *ngIf="this.userInfo.dataCompany.cardid" href="{{this.userInfo.dataCompany.cardid}}" class="pl-2">{{this.userInfo.dataCompany.cardid}}</a>
-          <p id="fileC_p"></p>
-          <input style="visibility: hidden" (change)="onFileSelected('fileC', 'cardid.pdf')" #fileC type="file" id="fileC" accept="application/pdf">
+          <p id="fileCE_p"></p>
+          <input style="visibility: hidden" (change)="onFileSelected('fileCE', 'cardid.pdf')" #fileCE type="file" id="fileCE" accept="application/pdf">
         </div>
 
         <div *ngIf="this.userInfo.dataCompany.razon === 'privada'">
@@ -435,7 +435,7 @@
           </mat-list-item>
           <mat-list-item>Ultimo inicio de sesión: &nbsp; <span *ngIf="currentUview.us_last_login != null">{{currentUview.us_last_login}}</span> <span *ngIf="currentUview.us_last_login == null">Nunca</span> </mat-list-item>
         </mat-list>
-        <div *ngIf="userInfo.type === 4">
+        <div *ngIf="userInfo.type == 4">
           <mat-expansion-panel>
             <mat-expansion-panel-header>
               <mat-panel-title>

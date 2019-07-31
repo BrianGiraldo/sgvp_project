@@ -16,21 +16,21 @@ type AOA = any[][];
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent extends AppComponent implements OnInit {
-  private typeUser: any;
-  private typeUserDefault: any = '1';
-  private newU: any;
-  private newUserMethodState: boolean;
-  private getUserMethodState: boolean;
-  private users: any;
-  private programs: any[];
-  private totalUsers: number;
-  private getUsersParam: any = {
+  public typeUser: any;
+  public typeUserDefault: any = '1';
+  public newU: any;
+  public newUserMethodState: boolean;
+  public getUserMethodState: boolean;
+  public users: any;
+  public programs: any[];
+  public totalUsers: number;
+  public getUsersParam: any = {
     us_id: '',
     text: '',
     rol: ''
   };
-  private getUsersOffset: number;
-  private listFilter = [
+  public getUsersOffset: number;
+  public listFilter = [
     {value: '0', viewValue: 'Todos'},
     {value: '1', viewValue: 'Estudiantes'},
     {value: '2', viewValue: 'Empresas'},
@@ -39,9 +39,9 @@ export class UsersComponent extends AppComponent implements OnInit {
     {value: '5', viewValue: 'Est. con Contrato'},
     {value: '6', viewValue: 'Est. sin Contrato'}
   ];
-  private currentUview: any = null;
-  private currentCview: any = null;
-  private currentOtherUserview: any = null;
+  public currentUview: any = null;
+  public currentCview: any = null;
+  public currentOtherUserview: any = null;
 
   data: AOA;
   dataUsers: any;
@@ -169,11 +169,11 @@ export class UsersComponent extends AppComponent implements OnInit {
 
 
   public viewUser(data) {
-    if (data.us_type === 1) {
+    if (data.us_type == 1) {
       this.currentUview = data;
       document.getElementById('view-u').style.width = '420px';
       document.getElementById('view-u').style.padding = '20px';
-    } else if (data.us_type === 2) {
+    } else if (data.us_type == 2) {
       this.currentCview = data;
       document.getElementById('view-c').style.width = '420px';
       document.getElementById('view-c').style.padding = '20px';
