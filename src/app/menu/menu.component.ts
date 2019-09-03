@@ -7,8 +7,8 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent extends AppComponent implements OnInit {
-  public HCemail: string;
-  public userType: number;
+  HCemail: string;
+  userType: number;
 
   ngOnInit() {
     this.userInfo = JSON.parse(localStorage.getItem('user'));

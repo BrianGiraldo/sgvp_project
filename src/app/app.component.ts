@@ -105,7 +105,7 @@ export class AppComponent {
     public snackBar: MatSnackBar,
     public router: Router,
     public dialog: MatDialog,
-    public url: LocationStrategy,
+    private url: LocationStrategy,
     public formBuilder: FormBuilder,
     public service: HttpService,
     public http: HttpClient
@@ -113,7 +113,7 @@ export class AppComponent {
     this.LogInLogin();
   }
 
-  public LogInLogin() {
+  private LogInLogin() {
     if (this.url.path() === '/' && localStorage.getItem('us_token') != null) {
       this.userInfo = JSON.parse(localStorage.getItem('user'));
       this.router.navigate(['/inicio']);

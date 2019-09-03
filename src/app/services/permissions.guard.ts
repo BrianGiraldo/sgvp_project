@@ -14,15 +14,16 @@ export class PermissionsGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     this.userInfo = JSON.parse(localStorage.getItem('user'));
     const ups = this.userInfo.type;
+
     if (state.url === '/usuarios') {
-      if (ups === '3') {
+      if (ups === 3) {
         return true;
       } else {
         this.router.navigate(['/inicio']);
         return false;
       }
     } else if (state.url === '/ofertas') {
-      if (ups === '1' || ups === '3' || ups === '2') {
+      if (ups === 1 || ups === 3 || ups === 2) {
         return true;
       } else {
         this.router.navigate(['/inicio']);
