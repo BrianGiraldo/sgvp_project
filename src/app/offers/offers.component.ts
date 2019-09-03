@@ -37,7 +37,7 @@ export class OffersComponent extends AppComponent implements OnInit {
       console.log(offer);
       for (const indexApplication in offer.applications) {
         const application = offer.applications[indexApplication];
-        if (application.state == 1) {
+        if (application.state === 1) {
           this.acceptedAplications.push({offer, application});
         }
       }
