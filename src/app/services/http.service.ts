@@ -11,7 +11,7 @@ export class HttpService {
   public options: any;
 
   constructor(private http: HttpClient) {
-    this.ServerUrl = 'http://localhost/SGVP-BackEnd/handler.php'; // 'http://190.114.255.122/SGVP-BackEnd/handler.php';
+    this.ServerUrl = 'http://190.114.255.122/SGVP-BackEnd/handler.php';
     this.headers = new Headers({ 'Content-Type': 'application/json' });
   }
 
